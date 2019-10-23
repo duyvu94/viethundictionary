@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.navigation_drawer, menu);
         MenuItem item = menu.findItem(R.id.action_search);
         searchView = (SearchView) item.getActionView();
-        Log.d("MYDEBUG", "Set search view");
         return true;
     }
 

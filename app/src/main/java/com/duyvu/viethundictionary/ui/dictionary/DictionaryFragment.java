@@ -1,6 +1,8 @@
 package com.duyvu.viethundictionary.ui.dictionary;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,25 +13,61 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import com.duyvu.viethundictionary.R;
+import com.duyvu.viethundictionary.adapter.DictionaryAdapter;
+import com.duyvu.viethundictionary.data.WordListDatabase;
+import com.duyvu.viethundictionary.models.Word;
 
-public class DictionaryFragment extends Fragment {
+import java.util.List;
 
-    private DictionaryViewModel dictionaryViewModel;
+public class DictionaryFragment extends Fragment implements DictionaryAdapter.DictionaryItemClickListener {
+
+    View root;
+    private RecyclerView recyclerView;
+    private DictionaryAdapter adapter;
+
+    private WordListDatabase database;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dictionaryViewModel =
-                ViewModelProviders.of(this).get(DictionaryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dictionary, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        dictionaryViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        root = inflater.inflate(R.layout.fragment_dictionary, container, false);
+
+        database = WordListDatabase.getInstance(getActivity().getApplicationContext());
+
+        initRecyclerView();
         return root;
+    }
+
+    private void initRecyclerView() {
+        recyclerView = root.findViewById(R.id.MainRecyclerView);
+        adapter = new DictionaryAdapter(this);
+        loadItemsInBackground();
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void loadItemsInBackground() {
+        new AsyncTask<Void, Void, List<Word>>() {
+
+            @Override
+            protected List<Word> doInBackground(Void... voids) {
+                return database.dictionaryItemDao().getAll();
+            }
+
+            @Override
+            protected void onPostExecute(List<Word> words) {
+                adapter.update(words);
+            }
+        }.execute();
+    }
+
+    @Override
+    public void onItemChanged(Word item) {
+
     }
 }
