@@ -14,19 +14,19 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.duyvu.viethundictionary.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_your_dictionary"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.duyvu.viethundictionary.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_bookmark"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_tools"
         android:name="com.duyvu.viethundictionary.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
+        android:label="@string/menu_settings"
         tools:layout="@layout/fragment_tools" />
 
     <fragment
