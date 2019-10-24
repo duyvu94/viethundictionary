@@ -50,11 +50,11 @@ public class Word {
 
     public static Word[] populateData(){
         return new Word[] {
-                new Word("alma", "táo", Category.DEFAULT),
-                new Word("citrom", "chanh", Category.DEFAULT),
-                new Word("dinyer", "dưa", Category.DEFAULT),
-                new Word("eper", "dâu", Category.DEFAULT),
-                new Word("gyümölcs", "hoa quả", Category.DEFAULT)
+                new Word("Alma", "táo", Category.DEFAULT),
+                new Word("Citrom", "chanh", Category.DEFAULT),
+                new Word("Dinyer", "dưa", Category.DEFAULT),
+                new Word("Eper", "dâu", Category.DEFAULT),
+                new Word("Gyümölcs", "hoa quả", Category.DEFAULT)
         };
 
     }

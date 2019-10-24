@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
@@ -45,25 +46,11 @@ public class DictionaryFragment extends Fragment implements DictionaryAdapter.Di
 
     private void initRecyclerView() {
         recyclerView = root.findViewById(R.id.MainRecyclerView);
-        adapter = new DictionaryAdapter(this);
-        loadItemsInBackground();
+        adapter = DictionaryAdapter.getInstance();
+        adapter.setListener(this);
+        adapter.update(database);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
-    }
-
-    private void loadItemsInBackground() {
-        new AsyncTask<Void, Void, List<Word>>() {
-
-            @Override
-            protected List<Word> doInBackground(Void... voids) {
-                return database.dictionaryItemDao().getAll();
-            }
-
-            @Override
-            protected void onPostExecute(List<Word> words) {
-                adapter.update(words);
-            }
-        }.execute();
     }
 
     @Override

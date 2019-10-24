@@ -10,6 +10,7 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.duyvu.viethundictionary.adapter.DictionaryAdapter;
 import com.duyvu.viethundictionary.models.Word;
 
 import java.util.concurrent.Executors;
@@ -44,6 +45,7 @@ public abstract class WordListDatabase extends RoomDatabase {
                             @Override
                             public void run() {
                                 getInstance(context).dictionaryItemDao().insertAll(Word.populateData());
+                                DictionaryAdapter.getInstance().update(getInstance(context));
                             }
                         });
                     }

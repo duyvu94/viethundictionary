@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.SearchView;
 import android.view.View;
 
+import com.duyvu.viethundictionary.adapter.DictionaryAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -51,8 +52,10 @@ public class MainActivity extends AppCompatActivity {
             public void onDestinationChanged(@NonNull NavController controller,
                                              @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 if(destination.getId() == R.id.nav_dictionary) {
-                    if (searchView != null)
+                    if (searchView != null){
                         searchView.setVisibility(View.VISIBLE);
+                        searchView.setOnQueryTextListener(DictionaryAdapter.getInstance());
+                    }
                 } else {
                     if (searchView != null)
                         searchView.setVisibility(View.GONE);
@@ -70,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.navigation_drawer, menu);
         MenuItem item = menu.findItem(R.id.action_search);
         searchView = (SearchView) item.getActionView();
+        searchView.setOnQueryTextListener(DictionaryAdapter.getInstance());
         return true;
     }
 
