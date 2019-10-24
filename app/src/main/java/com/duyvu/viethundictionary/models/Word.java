@@ -29,6 +29,8 @@ public class Word {
         }
     }
 
+    public static final int categoryPrivateInt = Word.Category.toInt(Word.Category.PRIVATE);
+
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
     public Long id;

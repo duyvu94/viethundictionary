@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.duyvu.viethundictionary.ui.gallery.GalleryFragment"
+        android:name="com.duyvu.viethundictionary.ui.custom_dicionary.CustomDictionaryFragment"
         android:label="@string/menu_your_dictionary"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_custom_dictionary" />
 
     <fragment
         android:id="@+id/nav_slideshow"

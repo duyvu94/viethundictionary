@@ -15,4 +15,12 @@
     <string name="menu_send">Send</string>
     <string name="search_bar">Type your word</string>
     <string name="communicate">Communicate</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_custom_word">Add new word</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="word">Word</string>
+    <string name="meaning">Meaning</string>
 </resources>

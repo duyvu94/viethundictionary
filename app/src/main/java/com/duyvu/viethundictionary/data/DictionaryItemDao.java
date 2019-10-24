@@ -15,6 +15,9 @@ public interface DictionaryItemDao {
     @Query("SELECT * FROM word")
     List<Word> getAll();
 
+    @Query("SELECT * FROM word WHERE category = 1")
+    List<Word> getAllCustomWords();
+
     @Insert
     long insert(Word word);
 
