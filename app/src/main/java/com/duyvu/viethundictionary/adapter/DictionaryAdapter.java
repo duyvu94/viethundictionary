@@ -121,9 +121,7 @@ public class DictionaryAdapter
     @Override
     public void onBindViewHolder(@NonNull DictionaryViewHolder holder, int position) {
         Word item = filteredItems.get(position);
-        holder.wordTextView.setText(item.word);
-        if (item.category == Word.Category.PRIVATE)
-            holder.categoryTextView.setVisibility(View.VISIBLE);
+        holder.bind(item, listener);
     }
 
     @Override
@@ -148,7 +146,7 @@ public class DictionaryAdapter
     }
 
     public interface DictionaryItemClickListener{
-        void onItemChanged(Word item);
+        void onItemSelected(Word item);
     }
 
     class DictionaryViewHolder extends RecyclerView.ViewHolder {
@@ -159,6 +157,21 @@ public class DictionaryAdapter
             super(itemView);
             wordTextView = itemView.findViewById(R.id.word);
             categoryTextView = itemView.findViewById(R.id.category);
+        }
+
+        public void bind(final Word item, final DictionaryItemClickListener listener){
+            wordTextView.setText(item.word);
+            if (item.category == Word.Category.PRIVATE)
+                categoryTextView.setVisibility(View.VISIBLE);
+            else
+                categoryTextView.setVisibility(View.GONE);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemSelected(item);
+                }
+            });
         }
     }
 }

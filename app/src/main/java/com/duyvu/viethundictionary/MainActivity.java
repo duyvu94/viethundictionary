@@ -5,12 +5,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -20,9 +23,11 @@ import android.view.View;
 
 import com.duyvu.viethundictionary.adapter.CustomDictionaryAdapter;
 import com.duyvu.viethundictionary.adapter.DictionaryAdapter;
+import com.duyvu.viethundictionary.models.Word;
+import com.duyvu.viethundictionary.ui.details.tools.DetailsFragment;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements DictionaryAdapter.DictionaryItemClickListener {
 
     private AppBarConfiguration mAppBarConfiguration;
     private SearchView searchView = null;
@@ -80,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         MenuItem item = menu.findItem(R.id.action_search);
         searchView = (SearchView) item.getActionView();
         searchView.setOnQueryTextListener(DictionaryAdapter.getInstance());
+        DictionaryAdapter.getInstance().setListener(this);
         return true;
     }
 
@@ -88,5 +94,11 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public void onItemSelected(Word item) {
+        Intent intent = new Intent(this, DetailsActivity.class);
+        startActivity(intent);
     }
 }

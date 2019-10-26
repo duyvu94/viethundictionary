@@ -25,7 +25,7 @@ import com.duyvu.viethundictionary.models.Word;
 
 import java.util.List;
 
-public class DictionaryFragment extends Fragment implements DictionaryAdapter.DictionaryItemClickListener {
+public class DictionaryFragment extends Fragment{
 
     View root;
     private RecyclerView recyclerView;
@@ -47,15 +47,9 @@ public class DictionaryFragment extends Fragment implements DictionaryAdapter.Di
     private void initRecyclerView() {
         recyclerView = root.findViewById(R.id.MainRecyclerView);
         adapter = DictionaryAdapter.getInstance();
-        adapter.setListener(this);
         adapter.update(database);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity().getApplicationContext(), DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(adapter);
-    }
-
-    @Override
-    public void onItemChanged(Word item) {
-
     }
 }
