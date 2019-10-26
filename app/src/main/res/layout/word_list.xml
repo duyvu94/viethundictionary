@@ -14,8 +14,46 @@
         android:id="@+id/word"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
+        android:textSize="20dp"
+        android:layout_gravity="center_vertical"
         android:textColor="@color/colorBlack"
         tools:text="Apple" />
+
+
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:gravity="right">
+
+        <TextView
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:visibility="gone"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/colorBlack"
+            android:text="@string/personal_word" />
+
+        <ImageButton
+            android:id="@+id/word_edit_button"
+            android:visibility="gone"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_edit" />
+
+        <ImageButton
+
+            android:id="@+id/word_remove_button"
+            android:visibility="gone"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+
+            android:src="@drawable/ic_delete" />
+
+    </LinearLayout>
 
 </LinearLayout>

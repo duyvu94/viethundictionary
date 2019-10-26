@@ -50,6 +50,7 @@ public class DictionaryFragment extends Fragment implements DictionaryAdapter.Di
         adapter.setListener(this);
         adapter.update(database);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity().getApplicationContext(), DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(adapter);
     }
 

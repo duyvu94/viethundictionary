@@ -5,11 +5,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,28 +18,31 @@ import androidx.fragment.app.FragmentManager;
 import com.duyvu.viethundictionary.R;
 import com.duyvu.viethundictionary.adapter.CustomDictionaryAdapter;
 import com.duyvu.viethundictionary.models.Word;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class NewCustomWordDialogFragment extends DialogFragment {
+public class DeleteCustomWordDialogFragment extends DialogFragment {
 
-    public static final String TAG = "NewWordDialogFragment";
+    public static final String TAG = "DeleteWordDialogFragment";
 
     private AlertDialog dialog;
-    private EditText wordText;
-    private EditText descriptionText;
     private FragmentManager fragmentManager;
+    private Word deletingWord;
 
-    public interface NewCustomWordDialogListener {
-        void onCustomWordCreated(Word newWord, Context context, FragmentManager fragmentManager);
+    public interface DeleteCustomWordDialogListener {
+        void onCustomWordDeleted(Word deletingWord, Context context, FragmentManager fragmentManager);
     }
 
-    private NewCustomWordDialogListener listener;
+    private DeleteCustomWordDialogListener listener;
+
+    public DeleteCustomWordDialogFragment(Word word, FragmentManager fragmentManager){
+        super();
+        this.fragmentManager = fragmentManager;
+        this.deletingWord = word;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        FragmentActivity activity = getActivity();
         listener = CustomDictionaryAdapter.getInstance();
     }
 
@@ -49,12 +50,11 @@ public class NewCustomWordDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         dialog = new AlertDialog.Builder(requireContext())
-                .setTitle(R.string.new_custom_word)
-                .setView(getContentView())
+                .setTitle(R.string.delete_custom_word)
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        listener.onCustomWordCreated(getWord(), getContext(), fragmentManager);
+                        listener.onCustomWordDeleted(deletingWord, getContext(), fragmentManager);
                     }
                 })
                 .setNegativeButton(R.string.cancel, null)
@@ -69,18 +69,5 @@ public class NewCustomWordDialogFragment extends DialogFragment {
         });
 
         return dialog;
-    }
-
-    private Word getWord() {
-        Word item = new Word(wordText.getText().toString(), descriptionText.getText().toString(), Word.Category.PRIVATE);
-        return item;
-    }
-
-    private View getContentView() {
-        View contentView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_new_custom_word, null);
-        wordText = contentView.findViewById(R.id.WordEditText);
-        descriptionText = contentView.findViewById(R.id.WordDescriptionEditText);
-
-        return contentView;
     }
 }

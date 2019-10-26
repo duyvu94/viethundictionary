@@ -23,4 +23,10 @@
     <string name="ok">OK</string>
     <string name="word">Word</string>
     <string name="meaning">Meaning</string>
+    <string name="delete_custom_word">Are you sure you want to delete?</string>
+    <string name="item_removed_message">The word has been deleted!</string>
+    <string name="item_insert_message">The word has been inserted successfully!</string>
+    <string name="item_insert_exist_message">Insert failed! The word has existed!</string>
+    <string name="item_insert_blank_message">Insert failed! The word or the meaning can not be blank!</string>
+    <string name="personal_word"> (personal word)</string>
 </resources>

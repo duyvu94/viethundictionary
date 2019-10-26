@@ -18,10 +18,9 @@ import android.view.MenuItem;
 import android.widget.SearchView;
 import android.view.View;
 
+import com.duyvu.viethundictionary.adapter.CustomDictionaryAdapter;
 import com.duyvu.viethundictionary.adapter.DictionaryAdapter;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dictionary, R.id.nav_gallery, R.id.nav_slideshow,
+                R.id.nav_dictionary, R.id.nav_custom_dictionary, R.id.nav_slideshow,
                 R.id.nav_tools, R.id.nav_share, R.id.nav_send)
                 .setDrawerLayout(drawer)
                 .build();
@@ -55,11 +54,18 @@ public class MainActivity extends AppCompatActivity {
                     if (searchView != null){
                         searchView.setVisibility(View.VISIBLE);
                         searchView.setOnQueryTextListener(DictionaryAdapter.getInstance());
+                        DictionaryAdapter.getInstance().setSearchView(searchView);
                     }
-                } else {
-                    if (searchView != null)
-                        searchView.setVisibility(View.GONE);
+                } else if(destination.getId() == R.id.nav_custom_dictionary) {
+                    if (searchView != null){
+                        searchView.setVisibility(View.VISIBLE);
+                        searchView.setOnQueryTextListener(CustomDictionaryAdapter.getInstance());
+                        CustomDictionaryAdapter.getInstance().setSearchView(searchView);
+                    }
                 }
+                else if (searchView != null)
+                    searchView.setVisibility(View.GONE);
+
             }
         });
 

@@ -12,10 +12,10 @@ import java.util.List;
 
 @Dao
 public interface DictionaryItemDao {
-    @Query("SELECT * FROM word")
+    @Query("SELECT * FROM word ORDER BY word")
     List<Word> getAll();
 
-    @Query("SELECT * FROM word WHERE category = 1")
+    @Query("SELECT * FROM word WHERE category = 1 ORDER BY word")
     List<Word> getAllCustomWords();
 
     @Insert

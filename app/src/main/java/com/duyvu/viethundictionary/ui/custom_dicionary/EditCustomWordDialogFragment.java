@@ -5,34 +5,29 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 
 import com.duyvu.viethundictionary.R;
 import com.duyvu.viethundictionary.adapter.CustomDictionaryAdapter;
 import com.duyvu.viethundictionary.models.Word;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class NewCustomWordDialogFragment extends DialogFragment {
+public class EditCustomWordDialogFragment extends DialogFragment {
 
     public static final String TAG = "NewWordDialogFragment";
 
     private AlertDialog dialog;
     private EditText wordText;
     private EditText descriptionText;
-    private FragmentManager fragmentManager;
 
     public interface NewCustomWordDialogListener {
-        void onCustomWordCreated(Word newWord, Context context, FragmentManager fragmentManager);
+        void onCustomWordCreated(Word newWord, Context context);
     }
 
     private NewCustomWordDialogListener listener;
@@ -42,7 +37,7 @@ public class NewCustomWordDialogFragment extends DialogFragment {
         super.onCreate(savedInstanceState);
 
         FragmentActivity activity = getActivity();
-        listener = CustomDictionaryAdapter.getInstance();
+        //listener = CustomDictionaryAdapter.getInstance();
     }
 
     @NonNull
@@ -54,7 +49,9 @@ public class NewCustomWordDialogFragment extends DialogFragment {
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        listener.onCustomWordCreated(getWord(), getContext(), fragmentManager);
+                        if (isValid()) {
+                            listener.onCustomWordCreated(getWord(), getContext());
+                        }
                     }
                 })
                 .setNegativeButton(R.string.cancel, null)
@@ -69,6 +66,10 @@ public class NewCustomWordDialogFragment extends DialogFragment {
         });
 
         return dialog;
+    }
+
+    private boolean isValid() {
+        return wordText.getText().toString().length() > 0 && descriptionText.getText().toString().length() > 0;
     }
 
     private Word getWord() {

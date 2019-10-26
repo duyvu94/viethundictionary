@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_dictionary" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_custom_dictionary"
         android:name="com.duyvu.viethundictionary.ui.custom_dicionary.CustomDictionaryFragment"
         android:label="@string/menu_your_dictionary"
         tools:layout="@layout/fragment_custom_dictionary" />

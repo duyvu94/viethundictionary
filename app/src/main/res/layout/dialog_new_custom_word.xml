@@ -12,7 +12,7 @@
         android:text="@string/word"/>
 
     <EditText
-        android:id="@+id/ShoppingItemNameEditText"
+        android:id="@+id/WordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -23,7 +23,7 @@
         android:text="@string/meaning"/>
 
     <EditText
-        android:id="@+id/ShoppingItemDescriptionEditText"
+        android:id="@+id/WordDescriptionEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

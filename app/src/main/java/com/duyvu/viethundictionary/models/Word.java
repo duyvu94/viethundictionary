@@ -45,6 +45,8 @@ public class Word {
     public Category category;
 
     public Word(String word, String description, Category category){
+        if (word.length() > 0)
+            word = word.substring(0, 1).toUpperCase() + word.substring(1);
         this.word = word;
         this.description =  description;
         this.category = category;

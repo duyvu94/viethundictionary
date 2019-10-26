@@ -27,6 +27,8 @@ public class DictionaryAdapter
     private final List<Word> items;
     private final List<Word> filteredItems;
 
+    private SearchView searchView;
+
     public void setListener(DictionaryItemClickListener listener) {
         this.listener = listener;
     }
@@ -64,6 +66,20 @@ public class DictionaryAdapter
         }
     };
 
+    public void setSearchView(SearchView searchView) {
+        this.searchView = searchView;
+    }
+
+    private void filterWords(){
+        if (searchView != null)
+            getFilter().filter(searchView.getQuery().toString());
+        else{
+            filteredItems.clear();
+            filteredItems.addAll(items);
+        }
+        notifyDataSetChanged();
+    }
+
     public static DictionaryAdapter getInstance(){
         if (dictionaryAdapter == null){
             dictionaryAdapter = new DictionaryAdapter();
@@ -88,9 +104,7 @@ public class DictionaryAdapter
             protected void onPostExecute(List<Word> words) {
                 items.clear();
                 items.addAll(words);
-                filteredItems.clear();
-                filteredItems.addAll(words);
-                notifyDataSetChanged();
+                filterWords();
             }
         }.execute();
     }
@@ -108,6 +122,8 @@ public class DictionaryAdapter
     public void onBindViewHolder(@NonNull DictionaryViewHolder holder, int position) {
         Word item = filteredItems.get(position);
         holder.wordTextView.setText(item.word);
+        if (item.category == Word.Category.PRIVATE)
+            holder.categoryTextView.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -137,10 +153,12 @@ public class DictionaryAdapter
 
     class DictionaryViewHolder extends RecyclerView.ViewHolder {
         TextView wordTextView;
+        TextView categoryTextView;
 
         DictionaryViewHolder(View itemView) {
             super(itemView);
             wordTextView = itemView.findViewById(R.id.word);
+            categoryTextView = itemView.findViewById(R.id.category);
         }
     }
 }
