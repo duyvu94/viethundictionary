@@ -5,8 +5,10 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverter;
 
+import java.io.Serializable;
+
 @Entity
-public class Word {
+public class Word implements Serializable {
 
     public enum Category {
         DEFAULT, PRIVATE;

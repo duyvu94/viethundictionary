@@ -12,6 +12,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,6 +27,8 @@ import com.duyvu.viethundictionary.adapter.DictionaryAdapter;
 import com.duyvu.viethundictionary.models.Word;
 import com.duyvu.viethundictionary.ui.details.tools.DetailsFragment;
 import com.google.android.material.navigation.NavigationView;
+
+import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity implements DictionaryAdapter.DictionaryItemClickListener {
 
@@ -99,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements DictionaryAdapter
     @Override
     public void onItemSelected(Word item) {
         Intent intent = new Intent(this, DetailsActivity.class);
+        intent.putExtra(DetailsActivity.TAG, item);
         startActivity(intent);
     }
 }
