@@ -21,6 +21,7 @@ import com.duyvu.viethundictionary.R;
 import com.duyvu.viethundictionary.data.WordListDatabase;
 import com.duyvu.viethundictionary.models.Word;
 import com.duyvu.viethundictionary.ui.custom_dicionary.DeleteCustomWordDialogFragment;
+import com.duyvu.viethundictionary.ui.custom_dicionary.EditCustomWordDialogFragment;
 import com.duyvu.viethundictionary.ui.custom_dicionary.NewCustomWordDialogFragment;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -31,6 +32,7 @@ public class CustomDictionaryAdapter
         extends RecyclerView.Adapter<CustomDictionaryAdapter.DictionaryViewHolder>
         implements Filterable, SearchView.OnQueryTextListener,
             NewCustomWordDialogFragment.NewCustomWordDialogListener,
+            EditCustomWordDialogFragment.EditCustomWordDialogListener,
             DeleteCustomWordDialogFragment.DeleteCustomWordDialogListener {
 
     private final List<Word> items;
@@ -39,11 +41,11 @@ public class CustomDictionaryAdapter
     private SearchView searchView;
     private View root;
 
-    public void setListener(DictionaryItemClickListener listener) {
+    public void setListener(DictionaryAdapter.DictionaryItemClickListener listener) {
         this.listener = listener;
     }
 
-    private DictionaryItemClickListener listener;
+    private DictionaryAdapter.DictionaryItemClickListener listener;
     private FragmentManager fragmentManager;
 
     private static CustomDictionaryAdapter dictionaryAdapter;
@@ -137,13 +139,7 @@ public class CustomDictionaryAdapter
     @Override
     public void onBindViewHolder(@NonNull DictionaryViewHolder holder, final int position) {
         Word item = filteredItems.get(position);
-        holder.wordTextView.setText(item.word);
-        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new DeleteCustomWordDialogFragment(filteredItems.get(position), fragmentManager).show(fragmentManager, DeleteCustomWordDialogFragment.TAG);
-            }
-        });
+        holder.bind(item, position, listener);
     }
 
     @Override
@@ -169,6 +165,7 @@ public class CustomDictionaryAdapter
 
     private boolean contains(String s){
         for(Word word : items){
+            Log.d("TESTING", word.word + " " + s);
             if (word.word.equals(s))
                 return true;
         }
@@ -176,7 +173,7 @@ public class CustomDictionaryAdapter
     }
 
     @Override
-    public void onCustomWordCreated(final Word newWord, final Context context, final FragmentManager fragmentManager) {
+    public void onCustomWordCreated(final Word newWord, final Context context) {
 
         if (newWord.word == null || newWord.description == null || newWord.word.length() == 0 || newWord.description.length() == 0) {
             Snackbar.make(root, R.string.item_insert_blank_message, Snackbar.LENGTH_SHORT).show();
@@ -206,7 +203,7 @@ public class CustomDictionaryAdapter
     }
 
     @Override
-    public void onCustomWordDeleted(final Word deletingWord, final Context context, final FragmentManager fragmentManager) {
+    public void onCustomWordDeleted(final Word deletingWord, final Context context) {
         new AsyncTask<Void, Void, Word>() {
 
             @Override
@@ -218,6 +215,39 @@ public class CustomDictionaryAdapter
             @Override
             protected void onPostExecute(Word deletingWord) {
                 CustomDictionaryAdapter.getInstance().deleteItem(deletingWord);
+            }
+        }.execute();
+    }
+
+    @Override
+    public void onCustomWordEdited(final Word originalWord, final Word editedWord, final Context context) {
+        Log.d("TESTING", editedWord.word+ " " + originalWord.word);
+        Log.d("TESTING", contains(editedWord.word)? "YES" : "NO");
+        if (editedWord.word == null || editedWord.description == null || editedWord.word.length() == 0 || editedWord.description.length() == 0) {
+            Snackbar.make(root, R.string.item_edit_blank_message, Snackbar.LENGTH_SHORT).show();
+            return;
+        }
+        else if (!editedWord.word.equals(originalWord.word) && contains(editedWord.word)){
+            Snackbar.make(root, R.string.item_edit_exist_message, Snackbar.LENGTH_SHORT).show();
+            return;
+        }
+        searchView.setQuery("", false);
+        searchView.clearFocus();
+
+        new AsyncTask<Void, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                WordListDatabase.getInstance(context).dictionaryItemDao().update(editedWord);
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void v) {
+                originalWord.word = editedWord.word;
+                originalWord.description = editedWord.description;
+                originalWord.type = editedWord.type;
+                CustomDictionaryAdapter.getInstance().updateItem();
             }
         }.execute();
     }
@@ -236,12 +266,17 @@ public class CustomDictionaryAdapter
         Snackbar.make(root, R.string.item_removed_message, Snackbar.LENGTH_SHORT).show();
     }
 
+    public void updateItem() {
+        notifyDataSetChanged();
+        Snackbar.make(root, R.string.item_updated_message, Snackbar.LENGTH_SHORT).show();
+    }
+
     public void setSearchView(SearchView searchView) {
         this.searchView = searchView;
     }
 
-    public interface DictionaryItemClickListener{
-        void onItemChanged(Word item);
+    public DictionaryAdapter.DictionaryItemClickListener getListener() {
+        return listener;
     }
 
     class DictionaryViewHolder extends RecyclerView.ViewHolder {
@@ -258,6 +293,30 @@ public class CustomDictionaryAdapter
             deleteButton.setVisibility(View.VISIBLE);
             editButton.setVisibility(View.VISIBLE);
 
+        }
+
+        public void bind(final Word item, final int position, final DictionaryAdapter.DictionaryItemClickListener listener){
+
+            wordTextView.setText(item.word);
+            editButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new EditCustomWordDialogFragment(filteredItems.get(position)).show(fragmentManager, DeleteCustomWordDialogFragment.TAG);
+                }
+            });
+            deleteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new DeleteCustomWordDialogFragment(filteredItems.get(position)).show(fragmentManager, DeleteCustomWordDialogFragment.TAG);
+                }
+            });
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemSelected(item);
+                }
+            });
         }
     }
 }

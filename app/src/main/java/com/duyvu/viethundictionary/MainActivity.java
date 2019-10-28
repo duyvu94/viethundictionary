@@ -25,10 +25,8 @@ import android.view.View;
 import com.duyvu.viethundictionary.adapter.CustomDictionaryAdapter;
 import com.duyvu.viethundictionary.adapter.DictionaryAdapter;
 import com.duyvu.viethundictionary.models.Word;
-import com.duyvu.viethundictionary.ui.details.tools.DetailsFragment;
 import com.google.android.material.navigation.NavigationView;
 
-import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity implements DictionaryAdapter.DictionaryItemClickListener {
 
@@ -63,12 +61,14 @@ public class MainActivity extends AppCompatActivity implements DictionaryAdapter
                         searchView.setVisibility(View.VISIBLE);
                         searchView.setOnQueryTextListener(DictionaryAdapter.getInstance());
                         DictionaryAdapter.getInstance().setSearchView(searchView);
+                        DictionaryAdapter.getInstance().setListener(MainActivity.this);
                     }
                 } else if(destination.getId() == R.id.nav_custom_dictionary) {
                     if (searchView != null){
                         searchView.setVisibility(View.VISIBLE);
                         searchView.setOnQueryTextListener(CustomDictionaryAdapter.getInstance());
                         CustomDictionaryAdapter.getInstance().setSearchView(searchView);
+                        CustomDictionaryAdapter.getInstance().setListener(MainActivity.this);
                     }
                 }
                 else if (searchView != null)

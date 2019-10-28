@@ -28,6 +28,22 @@
     <string name="item_insert_message">The word has been inserted successfully!</string>
     <string name="item_insert_exist_message">Insert failed! The word has existed!</string>
     <string name="item_insert_blank_message">Insert failed! The word or the meaning can not be blank!</string>
+    <string name="item_edit_exist_message">Edit failed! The word has existed!</string>
+    <string name="item_edit_blank_message">Edit failed! The word or the meaning can not be blank!</string>
     <string name="personal_word"> (personal word)</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="type">Type</string>
+    <string name="edit_custom_word">Edit word</string>
+    <string name="item_updated_message">The word has been updated!</string>
+    <string name="blank_list">Add your own words here</string>
+    <string-array name="type_items">
+        <item>NOUN</item>
+        <item>VERB</item>
+        <item>ADVERB</item>
+        <item>ADJECTIVE</item>
+        <item>DETERMINER</item>
+        <item>PRONOUN</item>
+        <item>CONJUNCTION</item>
+        <item>PREPOSITION</item>
+    </string-array>
 </resources>

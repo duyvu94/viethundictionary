@@ -24,18 +24,16 @@ public class DeleteCustomWordDialogFragment extends DialogFragment {
     public static final String TAG = "DeleteWordDialogFragment";
 
     private AlertDialog dialog;
-    private FragmentManager fragmentManager;
     private Word deletingWord;
 
     public interface DeleteCustomWordDialogListener {
-        void onCustomWordDeleted(Word deletingWord, Context context, FragmentManager fragmentManager);
+        void onCustomWordDeleted(Word deletingWord, Context context);
     }
 
     private DeleteCustomWordDialogListener listener;
 
-    public DeleteCustomWordDialogFragment(Word word, FragmentManager fragmentManager){
+    public DeleteCustomWordDialogFragment(Word word){
         super();
-        this.fragmentManager = fragmentManager;
         this.deletingWord = word;
     }
 
@@ -54,7 +52,7 @@ public class DeleteCustomWordDialogFragment extends DialogFragment {
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        listener.onCustomWordDeleted(deletingWord, getContext(), fragmentManager);
+                        listener.onCustomWordDeleted(deletingWord, getContext());
                     }
                 })
                 .setNegativeButton(R.string.cancel, null)

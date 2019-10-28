@@ -1,7 +1,6 @@
 package com.duyvu.viethundictionary.data;
 
 import android.content.Context;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -17,9 +16,10 @@ import java.util.concurrent.Executors;
 
 @Database(
         entities = {Word.class},
-        version = 1
+        version = 1,
+        exportSchema = false
 )
-@TypeConverters(value = {Word.Category.class})
+@TypeConverters(value = {Word.Category.class, Word.Type.class})
 public abstract class WordListDatabase extends RoomDatabase {
     public abstract DictionaryItemDao dictionaryItemDao();
 

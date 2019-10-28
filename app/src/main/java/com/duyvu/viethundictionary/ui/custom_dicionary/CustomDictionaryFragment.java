@@ -19,8 +19,7 @@ import com.duyvu.viethundictionary.data.WordListDatabase;
 import com.duyvu.viethundictionary.models.Word;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class CustomDictionaryFragment extends Fragment
-        implements CustomDictionaryAdapter.DictionaryItemClickListener {
+public class CustomDictionaryFragment extends Fragment {
 
     View root;
     private RecyclerView recyclerView;
@@ -50,15 +49,9 @@ public class CustomDictionaryFragment extends Fragment
     private void initRecyclerView() {
         recyclerView = root.findViewById(R.id.MainRecyclerView);
         adapter = CustomDictionaryAdapter.getInstance(root, getActivity().getSupportFragmentManager());
-        adapter.setListener(this);
         adapter.update(database);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity().getApplicationContext(), DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(adapter);
-    }
-
-    @Override
-    public void onItemChanged(Word item) {
-
     }
 }

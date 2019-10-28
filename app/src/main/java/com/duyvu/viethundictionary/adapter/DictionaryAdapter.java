@@ -18,7 +18,6 @@ import com.duyvu.viethundictionary.data.WordListDatabase;
 import com.duyvu.viethundictionary.models.Word;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class DictionaryAdapter

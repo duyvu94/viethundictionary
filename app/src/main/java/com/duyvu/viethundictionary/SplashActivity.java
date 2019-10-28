@@ -27,6 +27,5 @@ public class SplashActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
 
-        //setContentView(R.layout.activity_splash);
     }
 }
