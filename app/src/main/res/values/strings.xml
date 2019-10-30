@@ -1,3 +1,49 @@
 <resources>
     <string name="app_name">VietHunDictionary</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Vietnami-Magyar Szótár</string>
+    <string name="nav_header_subtitle">duysp1994@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_search">Search</string>
+
+    <string name="menu_dictionary">Dictionary</string>
+    <string name="menu_your_dictionary">Your dictionary</string>
+    <string name="menu_bookmark">Bookmarks</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="search_bar">Type your word</string>
+    <string name="communicate">Communicate</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_custom_word">Add new word</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="word">Word</string>
+    <string name="meaning">Meaning</string>
+    <string name="delete_custom_word">Are you sure you want to delete?</string>
+    <string name="item_removed_message">The word has been deleted!</string>
+    <string name="item_insert_message">The word has been inserted successfully!</string>
+    <string name="item_insert_exist_message">Insert failed! The word has existed!</string>
+    <string name="item_insert_blank_message">Insert failed! The word or the meaning can not be blank!</string>
+    <string name="item_edit_exist_message">Edit failed! The word has existed!</string>
+    <string name="item_edit_blank_message">Edit failed! The word or the meaning can not be blank!</string>
+    <string name="personal_word"> (personal word)</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="type">Type</string>
+    <string name="edit_custom_word">Edit word</string>
+    <string name="item_updated_message">The word has been updated!</string>
+    <string name="blank_list">Add your own words here</string>
+    <string-array name="type_items">
+        <item>NOUN</item>
+        <item>VERB</item>
+        <item>ADVERB</item>
+        <item>ADJECTIVE</item>
+        <item>DETERMINER</item>
+        <item>PRONOUN</item>
+        <item>CONJUNCTION</item>
+        <item>PREPOSITION</item>
+    </string-array>
 </resources>

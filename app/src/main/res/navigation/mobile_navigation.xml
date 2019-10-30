@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_dictionary">
+
+    <fragment
+        android:id="@+id/nav_dictionary"
+        android:name="com.duyvu.viethundictionary.ui.dictionary.DictionaryFragment"
+        android:label="@string/menu_dictionary"
+        tools:layout="@layout/fragment_dictionary" />
+
+    <fragment
+        android:id="@+id/nav_custom_dictionary"
+        android:name="com.duyvu.viethundictionary.ui.custom_dicionary.CustomDictionaryFragment"
+        android:label="@string/menu_your_dictionary"
+        tools:layout="@layout/fragment_custom_dictionary" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.duyvu.viethundictionary.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_bookmark"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_tools"
+        android:name="com.duyvu.viethundictionary.ui.tools.ToolsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_tools" />
+
+    <fragment
+        android:id="@+id/nav_share"
+        android:name="com.duyvu.viethundictionary.ui.share.ShareFragment"
+        android:label="@string/menu_share"
+        tools:layout="@layout/fragment_share" />
+
+    <fragment
+        android:id="@+id/nav_send"
+        android:name="com.duyvu.viethundictionary.ui.send.SendFragment"
+        android:label="@string/menu_send"
+        tools:layout="@layout/fragment_send" />
+</navigation>
