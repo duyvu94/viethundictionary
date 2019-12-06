@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VietHunDictionary</string>
+    <string name="action_search">Tìm kiếm</string>
+    <string name="blank_list">Thêm từ của riêng bạn ở đây</string>
+    <string name="cancel">Hủy bỏ</string>
+    <string name="communicate">Giao tiếp</string>
+    <string name="delete_custom_word">Bạn có chắc chắn muốn xóa?</string>
+    <string name="edit_custom_word">Chỉnh sửa từ</string>
+    <string name="english">Tiếng Anh</string>
+    <string name="hungarian">Tiếng Hung</string>
+    <string name="item_edit_blank_message">Chỉnh sửa thất bại! Từ hoặc nghĩa không thể để trống!</string>
+    <string name="item_edit_exist_message">Chỉnh sửa thất bại! Từ đã tồn tại!</string>
+    <string name="item_insert_blank_message">Chèn thất bại! Từ hoặc nghĩa không thể để trống!</string>
+    <string name="item_insert_exist_message">Chèn thất bại! Từ đã tồn tại!</string>
+    <string name="item_insert_message">Từ đã được chèn thành công!</string>
+    <string name="item_removed_message">Từ đã bị xóa!</string>
+    <string name="item_updated_message">Từ đã được cập nhật!</string>
+    <string name="language">NGÔN NGỮ</string>
+    <string name="meaning">Ý nghĩa</string>
+    <string name="menu_bookmark">Dấu trang</string>
+    <string name="menu_dictionary">Từ điển</string>
+    <string name="menu_send">Gửi</string>
+    <string name="menu_settings">Cài đặt</string>
+    <string name="menu_share">Chia sẻ</string>
+    <string name="menu_your_dictionary">Từ điển của bạn</string>
+    <string name="new_custom_word">Thêm từ mới</string>
+    <string name="personal_word">(từ cá nhân)</string>
+    <string name="search_bar">Nhập từ cần tìm</string>
+    <string name="type">Kiểu</string>
+    <string name="vietnamese">Tiếng Việt</string>
+    <string name="word">Từ</string>
+    <string name="apply">Xác nhận</string>
+</resources>

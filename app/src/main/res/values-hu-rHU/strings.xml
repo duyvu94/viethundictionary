@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VietHunDictionary</string>
+    <string name="action_search">Keresés</string>
+    <string name="blank_list">Adja hozzá a saját szavait ide</string>
+    <string name="communicate">Kommunikál</string>
+    <string name="cancel">visszamond</string>
+    <string name="delete_custom_word">Biztosan törölni szeretné?</string>
+    <string name="edit_custom_word">Szó szerkesztése</string>
+    <string name="item_edit_blank_message">A szerkesztés sikertelen! A szó vagy a jelentés nem lehet üres!</string>
+    <string name="item_edit_exist_message">A szerkesztés sikertelen! A szó létezett!</string>
+    <string name="item_insert_blank_message">A beillesztés sikertelen! A szó vagy a jelentés nem lehet üres!</string>
+    <string name="item_insert_exist_message">A beillesztés sikertelen! A szó létezett!</string>
+    <string name="item_insert_message">A szó sikeresen beillesztésre került!</string>
+    <string name="item_removed_message">A szót töröltük!</string>
+    <string name="item_updated_message">A szó frissült!</string>
+    <string name="word">Szó</string>
+    <string name="meaning">Jelentés</string>
+    <string name="menu_bookmark">Könyvjelzők</string>
+    <string name="menu_dictionary">Szótár</string>
+    <string name="menu_send">elküldés</string>
+    <string name="menu_settings">Beállítások</string>
+    <string name="menu_share">Megosztása</string>
+    <string name="menu_your_dictionary">Személyes szótár</string>
+    <string name="new_custom_word">Új szó hozzáadása</string>
+    <string name="personal_word">(személyes szó)</string>
+    <string name="search_bar">Írja be a szót</string>
+    <string name="type">Típus</string>
+    <string name="english">Angol</string>
+    <string name="language">NYELV</string>
+    <string name="vietnamese">Vietnami</string>
+    <string name="hungarian">Magyar</string>
+    <string name="apply">Mentés</string>
+</resources>

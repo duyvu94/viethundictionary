@@ -44,7 +44,7 @@ public abstract class WordListDatabase extends RoomDatabase {
                         Executors.newSingleThreadScheduledExecutor().execute(new Runnable() {
                             @Override
                             public void run() {
-                                getInstance(context).dictionaryItemDao().insertAll(Word.populateData());
+                                getInstance(context).dictionaryItemDao().insertAll(Word.populateData(context));
                                 DictionaryAdapter.getInstance().update(getInstance(context));
                             }
                         });
