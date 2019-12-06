@@ -14,7 +14,10 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -27,6 +30,8 @@ import com.duyvu.viethundictionary.adapter.DictionaryAdapter;
 import com.duyvu.viethundictionary.models.Word;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Locale;
+
 
 public class MainActivity extends AppCompatActivity implements DictionaryAdapter.DictionaryItemClickListener {
 
@@ -36,6 +41,24 @@ public class MainActivity extends AppCompatActivity implements DictionaryAdapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //set language
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        String language = sharedPref.getString("language", null);
+        if (language == null){
+            editor.putString("language", "en");
+            language = "en";
+            editor.apply();
+        }
+
+        Locale locale = new Locale(language);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+
+
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -45,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements DictionaryAdapter
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_dictionary, R.id.nav_custom_dictionary, R.id.nav_slideshow,
                 R.id.nav_tools, R.id.nav_share, R.id.nav_send)

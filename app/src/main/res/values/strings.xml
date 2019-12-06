@@ -1,10 +1,7 @@
 <resources>
     <string name="app_name">VietHunDictionary</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Vietnami-Magyar Szótár</string>
-    <string name="nav_header_subtitle">duysp1994@gmail.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_title" translatable="false">Vietnami-Magyar Szótár</string>
+    <string name="nav_header_subtitle" translatable="false">duysp1994@gmail.com</string>
     <string name="action_search">Search</string>
 
     <string name="menu_dictionary">Dictionary</string>
@@ -17,10 +14,9 @@
     <string name="communicate">Communicate</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="new_custom_word">Add new word</string>
     <string name="cancel">Cancel</string>
-    <string name="ok">OK</string>
+    <string name="ok" translatable="false">OK</string>
     <string name="word">Word</string>
     <string name="meaning">Meaning</string>
     <string name="delete_custom_word">Are you sure you want to delete?</string>
@@ -31,19 +27,23 @@
     <string name="item_edit_exist_message">Edit failed! The word has existed!</string>
     <string name="item_edit_blank_message">Edit failed! The word or the meaning can not be blank!</string>
     <string name="personal_word"> (personal word)</string>
-    <string name="title_activity_main2">Main2Activity</string>
     <string name="type">Type</string>
     <string name="edit_custom_word">Edit word</string>
     <string name="item_updated_message">The word has been updated!</string>
     <string name="blank_list">Add your own words here</string>
+    <string name="english">English</string>
+    <string name="hungarian">Hungarian</string>
+    <string name="vietnamese">Vietnamese</string>
+    <string name="language">LANGUAGE</string>
+    <string name="apply">Apply</string>
     <string-array name="type_items">
-        <item>NOUN</item>
-        <item>VERB</item>
-        <item>ADVERB</item>
-        <item>ADJECTIVE</item>
-        <item>DETERMINER</item>
-        <item>PRONOUN</item>
-        <item>CONJUNCTION</item>
-        <item>PREPOSITION</item>
+        <item name="noun">NOUN</item>
+        <item name="verb">VERB</item>
+        <item name="adverb">ADVERB</item>
+        <item name="adjective">ADJECTIVE</item>
+        <item name="determiner">DETERMINER</item>
+        <item name="pronoun">PRONOUN</item>
+        <item name="conjunction">CONJUNCTION</item>
+        <item name="preposition">PREPOSITION</item>
     </string-array>
 </resources>

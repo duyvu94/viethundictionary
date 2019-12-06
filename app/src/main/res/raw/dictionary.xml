@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<words>
+    <word>
+        <name>Alma</name>
+        <type>NOUN</type>
+        <description>Quả táo</description>
+    </word>
+    <word>
+        <name>Citrom</name>
+        <type>NOUN</type>
+        <description>Quả chanh</description>
+    </word>
+    <word>
+        <name>Dinyer</name>
+        <type>NOUN</type>
+        <description>Quả dưa</description>
+    </word>
+    <word>
+        <name>Eper</name>
+        <type>NOUN</type>
+        <description>Quả dưa</description>
+    </word>
+    <word>
+        <name>Gyümölcs</name>
+        <type>NOUN</type>
+        <description>Hoa quả</description>
+    </word>
+</words>
