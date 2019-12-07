@@ -18,7 +18,7 @@
     <string name="item_updated_message">Từ đã được cập nhật!</string>
     <string name="language">NGÔN NGỮ</string>
     <string name="meaning">Ý nghĩa</string>
-    <string name="menu_bookmark">Dấu trang</string>
+    <string name="menu_quiz">Trắc nghiệm</string>
     <string name="menu_dictionary">Từ điển</string>
     <string name="menu_send">Gửi</string>
     <string name="menu_settings">Cài đặt</string>
@@ -31,4 +31,9 @@
     <string name="vietnamese">Tiếng Việt</string>
     <string name="word">Từ</string>
     <string name="apply">Xác nhận</string>
+    <string name="quiz_question">Nghĩa của từ này là gì?</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="continue_text">Tiếp tục</string>
+    <string name="correct">Chính xác!</string>
+    <string name="wrong">Sai rồi</string>
 </resources>

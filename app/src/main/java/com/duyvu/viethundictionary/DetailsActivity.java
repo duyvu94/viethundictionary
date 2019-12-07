@@ -3,10 +3,9 @@ package com.duyvu.viethundictionary;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
-import com.duyvu.viethundictionary.models.Word;
+import com.duyvu.viethundictionary.model.Word;
 
 public class DetailsActivity extends AppCompatActivity {
 

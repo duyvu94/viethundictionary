@@ -5,21 +5,17 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
@@ -27,7 +23,7 @@ import android.view.View;
 
 import com.duyvu.viethundictionary.adapter.CustomDictionaryAdapter;
 import com.duyvu.viethundictionary.adapter.DictionaryAdapter;
-import com.duyvu.viethundictionary.models.Word;
+import com.duyvu.viethundictionary.model.Word;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Locale;
@@ -70,8 +66,8 @@ public class MainActivity extends AppCompatActivity implements DictionaryAdapter
         // menu should be considered as top level destinations.
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dictionary, R.id.nav_custom_dictionary, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
+                R.id.nav_dictionary, R.id.nav_custom_dictionary, R.id.nav_quiz,
+                R.id.nav_tools)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

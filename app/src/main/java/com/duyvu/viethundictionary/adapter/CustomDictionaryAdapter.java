@@ -1,6 +1,5 @@
 package com.duyvu.viethundictionary.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -19,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.duyvu.viethundictionary.R;
 import com.duyvu.viethundictionary.data.WordListDatabase;
-import com.duyvu.viethundictionary.models.Word;
+import com.duyvu.viethundictionary.model.Word;
 import com.duyvu.viethundictionary.ui.custom_dicionary.DeleteCustomWordDialogFragment;
 import com.duyvu.viethundictionary.ui.custom_dicionary.EditCustomWordDialogFragment;
 import com.duyvu.viethundictionary.ui.custom_dicionary.NewCustomWordDialogFragment;

@@ -16,7 +16,7 @@
     <string name="item_updated_message">A szó frissült!</string>
     <string name="word">Szó</string>
     <string name="meaning">Jelentés</string>
-    <string name="menu_bookmark">Könyvjelzők</string>
+    <string name="menu_quiz">Kvíz</string>
     <string name="menu_dictionary">Szótár</string>
     <string name="menu_send">elküldés</string>
     <string name="menu_settings">Beállítások</string>
@@ -31,4 +31,9 @@
     <string name="vietnamese">Vietnami</string>
     <string name="hungarian">Magyar</string>
     <string name="apply">Mentés</string>
+    <string name="quiz_question">Mi a szó jelentése?</string>
+    <string name="confirm">Jóváhagy</string>
+    <string name="continue_text">Folytat</string>
+    <string name="correct">Helyes!</string>
+    <string name="wrong">Helytelen</string>
 </resources>

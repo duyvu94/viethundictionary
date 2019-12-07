@@ -10,7 +10,7 @@ import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.duyvu.viethundictionary.adapter.DictionaryAdapter;
-import com.duyvu.viethundictionary.models.Word;
+import com.duyvu.viethundictionary.model.Word;
 
 import java.util.concurrent.Executors;
 

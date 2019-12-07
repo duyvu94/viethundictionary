@@ -6,7 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.duyvu.viethundictionary.models.Word;
+import com.duyvu.viethundictionary.model.Word;
 
 import java.util.List;
 

@@ -14,11 +14,10 @@ import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentActivity;
 
 import com.duyvu.viethundictionary.R;
 import com.duyvu.viethundictionary.adapter.CustomDictionaryAdapter;
-import com.duyvu.viethundictionary.models.Word;
+import com.duyvu.viethundictionary.model.Word;
 
 public class EditCustomWordDialogFragment extends DialogFragment {
 

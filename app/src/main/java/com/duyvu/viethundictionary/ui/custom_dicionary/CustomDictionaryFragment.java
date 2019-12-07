@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -14,9 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.duyvu.viethundictionary.R;
 import com.duyvu.viethundictionary.adapter.CustomDictionaryAdapter;
-import com.duyvu.viethundictionary.adapter.DictionaryAdapter;
 import com.duyvu.viethundictionary.data.WordListDatabase;
-import com.duyvu.viethundictionary.models.Word;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class CustomDictionaryFragment extends Fragment {

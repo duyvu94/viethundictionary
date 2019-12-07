@@ -18,11 +18,62 @@
     <word>
         <name>Eper</name>
         <type>NOUN</type>
-        <description>Quả dưa</description>
+        <description>Quả dâu</description>
     </word>
     <word>
         <name>Gyümölcs</name>
         <type>NOUN</type>
         <description>Hoa quả</description>
+    </word>
+    <word>
+        <name>Banán</name>
+        <type>NOUN</type>
+        <description>Chuối</description>
+    </word>
+    <word>
+        <name>Autó</name>
+        <type>NOUN</type>
+        <description>Xe ô tô</description>
+    </word>
+    <word>
+        <name>Asztal</name>
+        <type>NOUN</type>
+        <description>Cái bàn</description>
+    </word>
+    <word>
+        <name>Szék</name>
+        <type>NOUN</type>
+        <description>Ghế</description>
+    </word>
+    <word>
+        <name>Számítógép</name>
+        <type>NOUN</type>
+        <description>Máy vi tính</description>
+    </word>
+    <word>
+        <name>Informatika</name>
+        <type>NOUN</type>
+        <description>Tin học</description>
+    </word>
+
+    <word>
+        <name>Barát</name>
+        <type>NOUN</type>
+        <description>Bạn</description>
+    </word>
+    <word>
+        <name>Fut</name>
+        <type>VERB</type>
+        <description>Chạy</description>
+    </word>
+    <word>
+        <name>Fáradt</name>
+        <type>ADJECTIVE</type>
+        <description>Mệt mỏi</description>
+    </word>
+    <word>
+        <name>Boldog</name>
+        <type>ADJECTIVE</type>
+        <description>Vui mừng</description>
     </word>
 </words>

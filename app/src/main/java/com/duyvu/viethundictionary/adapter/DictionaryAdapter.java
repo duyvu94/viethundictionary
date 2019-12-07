@@ -1,7 +1,6 @@
 package com.duyvu.viethundictionary.adapter;
 
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.duyvu.viethundictionary.R;
 import com.duyvu.viethundictionary.data.WordListDatabase;
-import com.duyvu.viethundictionary.models.Word;
+import com.duyvu.viethundictionary.model.Word;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +63,10 @@ public class DictionaryAdapter
             notifyDataSetChanged();
         }
     };
+
+    public List<Word> getItems() {
+        return items;
+    }
 
     public void setSearchView(SearchView searchView) {
         this.searchView = searchView;

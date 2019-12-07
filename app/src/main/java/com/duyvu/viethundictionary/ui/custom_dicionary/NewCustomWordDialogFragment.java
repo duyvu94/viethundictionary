@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -18,7 +17,7 @@ import androidx.fragment.app.DialogFragment;
 
 import com.duyvu.viethundictionary.R;
 import com.duyvu.viethundictionary.adapter.CustomDictionaryAdapter;
-import com.duyvu.viethundictionary.models.Word;
+import com.duyvu.viethundictionary.model.Word;
 
 public class NewCustomWordDialogFragment extends DialogFragment {
 
