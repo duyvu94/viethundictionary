@@ -1,4 +1,4 @@
-package com.duyvu.viethundictionary.ui.settings;
+package com.duyvu.viethundictionary.fragment.settings;
 
 import android.content.Context;
 import android.content.Intent;

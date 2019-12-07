@@ -1,4 +1,4 @@
-package com.duyvu.viethundictionary.ui.dictionary;
+package com.duyvu.viethundictionary.fragment.custom_dicionary;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,31 +12,40 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.duyvu.viethundictionary.R;
-import com.duyvu.viethundictionary.adapter.DictionaryAdapter;
+import com.duyvu.viethundictionary.adapter.CustomDictionaryAdapter;
 import com.duyvu.viethundictionary.data.WordListDatabase;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class DictionaryFragment extends Fragment{
+public class CustomDictionaryFragment extends Fragment {
 
     View root;
     private RecyclerView recyclerView;
-    private DictionaryAdapter adapter;
+    private CustomDictionaryAdapter adapter;
 
     private WordListDatabase database;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        root = inflater.inflate(R.layout.fragment_dictionary, container, false);
+        root = inflater.inflate(R.layout.fragment_custom_dictionary, container, false);
+
+        FloatingActionButton fab = root.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new NewCustomWordDialogFragment().show(getActivity().getSupportFragmentManager(), NewCustomWordDialogFragment.TAG);
+            }
+        });
 
         database = WordListDatabase.getInstance(getActivity().getApplicationContext());
-
         initRecyclerView();
+
         return root;
     }
 
     private void initRecyclerView() {
         recyclerView = root.findViewById(R.id.MainRecyclerView);
-        adapter = DictionaryAdapter.getInstance();
+        adapter = CustomDictionaryAdapter.getInstance(root, getActivity().getSupportFragmentManager());
         adapter.update(database);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity().getApplicationContext(), DividerItemDecoration.VERTICAL));

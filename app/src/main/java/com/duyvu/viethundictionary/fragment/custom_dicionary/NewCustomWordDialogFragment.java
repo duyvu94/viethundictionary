@@ -1,4 +1,4 @@
-package com.duyvu.viethundictionary.ui.custom_dicionary;
+package com.duyvu.viethundictionary.fragment.custom_dicionary;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -19,7 +19,7 @@ import com.duyvu.viethundictionary.R;
 import com.duyvu.viethundictionary.adapter.CustomDictionaryAdapter;
 import com.duyvu.viethundictionary.model.Word;
 
-public class EditCustomWordDialogFragment extends DialogFragment {
+public class NewCustomWordDialogFragment extends DialogFragment {
 
     public static final String TAG = "NewWordDialogFragment";
 
@@ -28,17 +28,11 @@ public class EditCustomWordDialogFragment extends DialogFragment {
     private EditText descriptionText;
     private Spinner typeSpinner;
 
-    private Word word;
-
-    public interface EditCustomWordDialogListener {
-        void onCustomWordEdited(Word originalWord, Word editedWord, Context context);
+    public interface NewCustomWordDialogListener {
+        void onCustomWordCreated(Word newWord, Context context);
     }
 
-    private EditCustomWordDialogListener listener;
-
-    public EditCustomWordDialogFragment(Word word){
-        this.word = word;
-    }
+    private NewCustomWordDialogListener listener;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,14 +45,12 @@ public class EditCustomWordDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         dialog = new AlertDialog.Builder(requireContext())
-                .setTitle(R.string.edit_custom_word)
+                .setTitle(R.string.new_custom_word)
                 .setView(getContentView())
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        if (isValid()) {
-                            listener.onCustomWordEdited(word, editedWord(), getContext());
-                        }
+                        listener.onCustomWordCreated(getWord(), getContext());
                     }
                 })
                 .setNegativeButton(R.string.cancel, null)
@@ -75,18 +67,11 @@ public class EditCustomWordDialogFragment extends DialogFragment {
         return dialog;
     }
 
-    private Word editedWord(){
-        Word editedWord = new Word(wordText.getText().toString(),
+    private Word getWord() {
+        Word item = new Word(wordText.getText().toString(),
                 Word.Type.getByOrdinal(typeSpinner.getSelectedItemPosition()),
-                descriptionText.getText().toString(), Word.Category.PRIVATE );
-        editedWord.id = word.id;
-        editedWord.description = descriptionText.getText().toString();
-
-        return editedWord;
-    }
-
-    private boolean isValid() {
-        return wordText.getText().toString().length() > 0 && descriptionText.getText().toString().length() > 0;
+                descriptionText.getText().toString(), Word.Category.PRIVATE);
+        return item;
     }
 
     private View getContentView() {
@@ -97,10 +82,6 @@ public class EditCustomWordDialogFragment extends DialogFragment {
         typeSpinner.setAdapter(new ArrayAdapter<>(requireContext(),
                 android.R.layout.simple_spinner_dropdown_item,
                 getResources().getStringArray(R.array.type_items)));
-
-        wordText.setText(word.word);
-        descriptionText.setText(word.description);
-        typeSpinner.setSelection(word.type.ordinal());
         return contentView;
     }
 }

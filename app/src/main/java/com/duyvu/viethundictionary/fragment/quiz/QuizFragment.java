@@ -1,4 +1,4 @@
-package com.duyvu.viethundictionary.ui.quiz;
+package com.duyvu.viethundictionary.fragment.quiz;
 
 import android.graphics.Color;
 import android.os.Bundle;

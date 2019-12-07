@@ -1,4 +1,4 @@
-package com.duyvu.viethundictionary.ui.custom_dicionary;
+package com.duyvu.viethundictionary.fragment.custom_dicionary;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

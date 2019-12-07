@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/nav_dictionary"
-        android:name="com.duyvu.viethundictionary.ui.dictionary.DictionaryFragment"
+        android:name="com.duyvu.viethundictionary.fragment.dictionary.DictionaryFragment"
         android:label="@string/menu_dictionary"
         tools:layout="@layout/fragment_dictionary" />
 
     <fragment
         android:id="@+id/nav_custom_dictionary"
-        android:name="com.duyvu.viethundictionary.ui.custom_dicionary.CustomDictionaryFragment"
+        android:name="com.duyvu.viethundictionary.fragment.custom_dicionary.CustomDictionaryFragment"
         android:label="@string/menu_your_dictionary"
         tools:layout="@layout/fragment_custom_dictionary" />
 
     <fragment
         android:id="@+id/nav_quiz"
-        android:name="com.duyvu.viethundictionary.ui.quiz.QuizFragment"
+        android:name="com.duyvu.viethundictionary.fragment.quiz.QuizFragment"
         android:label="@string/menu_quiz"
         tools:layout="@layout/fragment_quiz" />
 
     <fragment
         android:id="@+id/nav_tools"
-        android:name="com.duyvu.viethundictionary.ui.settings.SettingsFragment"
+        android:name="com.duyvu.viethundictionary.fragment.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_settings" />
 

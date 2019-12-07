@@ -19,9 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.duyvu.viethundictionary.R;
 import com.duyvu.viethundictionary.data.WordListDatabase;
 import com.duyvu.viethundictionary.model.Word;
-import com.duyvu.viethundictionary.ui.custom_dicionary.DeleteCustomWordDialogFragment;
-import com.duyvu.viethundictionary.ui.custom_dicionary.EditCustomWordDialogFragment;
-import com.duyvu.viethundictionary.ui.custom_dicionary.NewCustomWordDialogFragment;
+import com.duyvu.viethundictionary.fragment.custom_dicionary.DeleteCustomWordDialogFragment;
+import com.duyvu.viethundictionary.fragment.custom_dicionary.EditCustomWordDialogFragment;
+import com.duyvu.viethundictionary.fragment.custom_dicionary.NewCustomWordDialogFragment;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
