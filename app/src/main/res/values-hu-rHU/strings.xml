@@ -4,7 +4,7 @@
     <string name="action_search">Keresés</string>
     <string name="blank_list">Adja hozzá a saját szavait ide</string>
     <string name="communicate">Kommunikál</string>
-    <string name="cancel">visszamond</string>
+    <string name="cancel">Mégse</string>
     <string name="delete_custom_word">Biztosan törölni szeretné?</string>
     <string name="edit_custom_word">Szó szerkesztése</string>
     <string name="item_edit_blank_message">A szerkesztés sikertelen! A szó vagy a jelentés nem lehet üres!</string>
@@ -32,8 +32,8 @@
     <string name="hungarian">Magyar</string>
     <string name="apply">Mentés</string>
     <string name="quiz_question">Mi a szó jelentése?</string>
-    <string name="confirm">Jóváhagy</string>
-    <string name="continue_text">Folytat</string>
+    <string name="confirm">Kész</string>
+    <string name="continue_text">Tovább</string>
     <string name="correct">Helyes!</string>
     <string name="wrong">Helytelen</string>
 </resources>
